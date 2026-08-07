@@ -1,0 +1,11 @@
+# Obsidian - arquivos de estado local (não precisam ser versionados)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/plugins/
+.obsidian/themes/
+.obsidian/hotkeys.json
+.obsidian/cache
+
+# Sistema
+.DS_Store
+.trash/
