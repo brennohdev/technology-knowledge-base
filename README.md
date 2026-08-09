@@ -9,6 +9,9 @@ Organized as an [Obsidian](https://obsidian.md) vault, version-controlled on Git
 ```
 ├── Robotics/
 │   └── ROS2/
+├── Node/
+|   └── Architeture/
+│   └── NestJS/
 └── ... (new topics will be added as we learn)
 ```
 
@@ -20,8 +23,12 @@ Organized as an [Obsidian](https://obsidian.md) vault, version-controlled on Git
 
 ## Topics covered
 
+- Computer Vision
 - Robotics
   - ROS2
+- Node
+  - Architeture
+  - NestJS
 
 ## Contributing
 
