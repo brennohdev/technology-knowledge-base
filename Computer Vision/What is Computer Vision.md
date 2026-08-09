@@ -5,7 +5,7 @@ Vision is our most powerful sense, and It allows us to communicate and understan
 I'd like to understand this study field because I want to be able to make my robotic machines to see the world as we see. We need to understand  how the human perception can be transferred to a robot.
 
 
-##  Vision? 
+##  Why vision
 
 Yes. The computer vision program or pipeline usually works like:
 
