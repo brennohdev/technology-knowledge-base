@@ -1,65 +1,60 @@
 ---
-tags: [econometrics, statistics, data-science, economics]
+tags: [econometrics, statistics, regression, mcrl]
 ---
 
 # Econometrics
 
-Econometrics is the application of **statistical methods to economic data**, with the goal of giving empirical content to economic relationships. In simple terms: it's how we test whether economic theories actually hold up in the real world, using numbers.
+Econometrics is the branch of economics that uses statistical methods, mostly regression analysis, to estimate relationships between economic variables, test theories, and make predictions. In practice, most of applied econometrics starts from one model: the **Classical Linear Regression Model (CLRM)**, estimated by **Ordinary Least Squares (OLS / MQO)**.
 
-Unlike pure statistics, econometrics is grounded in economic theory — the model structure isn't arbitrary; it's built on hypotheses about how variables relate to each other.
+## The Classical Linear Regression Model (CLRM)
 
-## Why it matters
+A regression model relates a dependent variable $Y$ to one or more explanatory variables $X$:
 
-Economics gives us theories, but theories alone don't tell us *how much* or *how strong* an effect is. Econometrics bridges that gap:
+$$Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \dots + \beta_k X_{ki} + u_i$$
 
-- **Testing theories:** Does increasing the minimum wage actually reduce employment, as some models predict?
-- **Forecasting:** What will inflation be next quarter based on current monetary policy?
-- **Policy evaluation:** Did the tax cut boost consumption, and by how much?
+$u_i$ is the error term, everything that affects $Y$ but isn't in the model. OLS picks the $\hat\beta$ that minimizes the sum of squared residuals.
 
-## The basic workflow
+## Gauss-Markov assumptions
 
-1. **Specify the model** — choose variables based on economic theory (e.g., consumption depends on income and wealth).
-2. **Estimate parameters** — use data to fit the model, usually via Ordinary Least Squares (OLS) or similar techniques.
-3. **Validate assumptions** — check that the statistical properties required for valid inference actually hold.
-4. **Infer and predict** — draw conclusions, test hypotheses, and make forecasts.
+For OLS to be **BLUE** (Best Linear Unbiased Estimator, unbiased *and* minimum variance among linear unbiased estimators), the CLRM assumes:
 
-## A simple mental model
+1. Linearity in parameters.
+2. Strict exogeneity, $E(u_i \mid X) = 0$.
+3. No perfect multicollinearity among regressors.
+4. Homoscedasticity, $\text{Var}(u_i \mid X) = \sigma^2$ (constant).
+5. No autocorrelation, $\text{Cov}(u_i, u_j) = 0$ for $i \neq j$.
+6. (For inference) $u_i \sim N(0, \sigma^2)$.
 
-The classic linear regression setup looks like:
+Each of the three "problem" notes below corresponds to one of these assumptions breaking:
 
-```
-Y = β₀ + β₁X₁ + β₂X₂ + ... + ε
-```
+- [[Multicollinearity]] — assumption 3 (not a Gauss-Markov assumption itself, but near-violation of it) degrades precision even though OLS stays BLUE.
+- [[Heteroscedasticity]] — assumption 4 breaks. OLS stays unbiased but loses efficiency (no longer BLUE), and standard errors become invalid.
+- [[Autocorrelation]] — assumption 5 breaks. Same consequence as heteroscedasticity: unbiased but inefficient, standard errors invalid, typically inflated t-stats when $\rho>0$.
 
-Where:
-- `Y` is the outcome we care about (e.g., wages)
-- `X` variables are explanatory factors (education, experience, etc.)
-- `β` coefficients tell us the magnitude and direction of each effect
-- `ε` is the error term — everything else we didn't measure
+The common thread: none of these three problems bias the coefficients themselves. What they break is **efficiency** (variance is no longer minimal) and/or the **validity of standard errors**, which is what makes hypothesis testing (t-tests, F-tests, confidence intervals) unreliable if ignored.
 
-## Key assumptions (the "OLS conditions")
+## Beyond continuous Y: qualitative response models
 
-For OLS estimates to be the **Best Linear Unbiased Estimators (BLUE)**, several conditions must hold. When they break, things get messy:
+The CLRM assumes a continuous dependent variable. When $Y$ is categorical, most commonly **binary** (0/1), a different toolkit is needed:
 
-- **Linearity** in parameters
-- **Random sampling** from the population
-- **No perfect collinearity** among independent variables
-- **Zero conditional mean** of errors: `E(ε|X) = 0`
-- **Homoscedasticity**: constant variance of errors
-- **No autocorrelation**: errors are uncorrelated across observations
-- **Normality of errors** (for small samples, mainly for hypothesis testing)
+- [[Dummy Variables]] — how to bring *qualitative explanatory* variables (sex, region, category...) into a regression.
+- [[Linear Probability, Logit and Probit]] — how to model a *qualitative dependent* variable (binary outcome), and why plain OLS (the Linear Probability Model) isn't the right tool for that.
 
-Violations are common in practice. The most frequent culprit? **[[Multicollinearity]]**.
+## Worked examples from our own work
 
-## Where it's used
+- Aggregate consumption model for Brazil (BCB SGS data, monthly, 2012–2022): used to walk through heteroscedasticity, autocorrelation and multicollinearity diagnostics end to end. See [[Heteroscedasticity]] and [[Autocorrelation]] for the actual test results from that model.
+- Labor force participation model (Mroz, 1987 dataset, 753 married women): used to compare Linear Probability Model, Logit and Probit side by side. See [[Linear Probability, Logit and Probit]] for the full walkthrough with real coefficients and marginal effects.
 
-- Macroeconomics: modeling GDP, inflation, interest rates
-- Finance: asset pricing, risk models
-- Labor economics: wage equations, returns to education
-- Program evaluation: causal impact of policies
+## Reference
+
+GUJARATI, Damodar N. *Econometria Básica*. 5th ed. Porto Alegre: AMGH, 2011. — main reference for all notes in this folder (chapters cited individually in each note).
 
 ## See also
 
 - [[Multicollinearity]]
+- [[Heteroscedasticity]]
+- [[Autocorrelation]]
+- [[Dummy Variables]]
+- [[Linear Probability, Logit and Probit]]
 
 Write by **Samuel**
