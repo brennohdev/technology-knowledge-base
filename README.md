@@ -7,6 +7,9 @@ Organized as an [Obsidian](https://obsidian.md) vault, version-controlled on Git
 ## Structure
 
 ```
+├── Econometrics/
+│   ├── Econometrics.md
+│   └── Multicollinearity.md
 ├── Robotics/
 │   └── ROS2/
 ├── Node/
@@ -24,6 +27,9 @@ Organized as an [Obsidian](https://obsidian.md) vault, version-controlled on Git
 ## Topics covered
 
 - Computer Vision
+- Econometrics
+  - Econometrics
+  - Multicollinearity
 - Robotics
   - ROS2
 - Node
