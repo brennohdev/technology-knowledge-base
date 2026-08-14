@@ -9,11 +9,16 @@ Organized as an [Obsidian](https://obsidian.md) vault, version-controlled on Git
 ```
 ├── Econometrics/
 │   ├── Econometrics.md
-│   └── Multicollinearity.md
+│   ├── Multicollinearity.md
+│   ├── Heteroscedasticity
+│   ├── Autocorrelation
+│   ├── Dummy Variables
+│   └── Linear Probability, Logit and Probit
 ├── Robotics/
 │   └── ROS2/
+├── Software Engineering/
+│   └── Architeture/   
 ├── Node/
-|   └── Architeture/
 │   └── NestJS/
 └── ... (new topics will be added as we learn)
 ```
