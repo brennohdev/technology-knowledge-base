@@ -17,7 +17,11 @@ Organized as an [Obsidian](https://obsidian.md) vault, version-controlled on Git
 ├── Robotics/
 │   └── ROS2/
 ├── Software Engineering/
-│   └── Architeture/   
+│   └── Architeture/
+├── Systems Programming
+│   ├── Pointers and Memory
+│   ├── The Stack and the Heap
+│   └── Compilation Process
 ├── Node/
 │   └── NestJS/
 └── ... (new topics will be added as we learn)
