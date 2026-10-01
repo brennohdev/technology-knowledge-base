@@ -17,7 +17,11 @@ Organized as an [Obsidian](https://obsidian.md) vault, version-controlled on Git
 ├── Robotics/
 │   └── ROS2/
 ├── Software Engineering/
-│   └── Architeture/
+│   ├── Architecture/
+│   └── Accessibility/
+│       ├── Accessibility (a11y)
+│       ├── Color Accessibility
+│       └── Accessible Choropleth Maps
 ├── Systems Programming
 │   ├── Pointers and Memory
 │   ├── The Stack and the Heap
@@ -41,8 +45,13 @@ Organized as an [Obsidian](https://obsidian.md) vault, version-controlled on Git
   - Multicollinearity
 - Robotics
   - ROS2
+- Software Engineering
+  - Architecture
+  - Accessibility
+    - Accessibility (a11y)
+    - Color Accessibility
+    - Accessible Choropleth Maps
 - Node
-  - Architeture
   - NestJS
 
 ## Contributing
